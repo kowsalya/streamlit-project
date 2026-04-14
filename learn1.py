@@ -46,21 +46,53 @@ if len(topics) == 0:
 st.session_state.index = min(st.session_state.index, len(topics) - 1)
 
 # ---------------------------
-# DISPLAY CURRENT QUESTION
+# DISPLAY CURRENT QUESTION (NEW UI)
 # ---------------------------
+
+# ---------- CUSTOM STYLE ----------
+st.markdown("""
+<style>
+.title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #00ffc3;
+}
+.card {
+    background-color: #1c1f26;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0,255,200,0.2);
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- HEADER ----------
+st.markdown("<div class='title'>🚀 Vibha Crypto Learning</div>", unsafe_allow_html=True)
+
+# ---------- PROGRESS ----------
+progress = (st.session_state.index + 1) / len(topics)
+st.progress(progress)
+
+st.write(f"📘 Question {st.session_state.index + 1} of {len(topics)}")
+
+# ---------- CARD ----------
 topic = topics[st.session_state.index]
 
-st.markdown("---")
+st.markdown("<div class='card'>", unsafe_allow_html=True)
 
-st.header(f"Q{st.session_state.index + 1}: {topic['question']}")
+st.markdown(f"### ❓ {topic['question']}")
+st.markdown("#### 💡 Answer")
 st.success(topic["answer"])
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown("---")
 
 # ---------------------------
 # NAVIGATION BUTTONS
 # ---------------------------
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns([1,2,1])
 
 with col1:
     if st.button("⬅ Previous"):
