@@ -1,0 +1,91 @@
+[
+  {
+    "category": "Basics",
+    "questions": [
+      {"q": "Nexus என்றால் என்ன?", "a": "Crypto staking மூலம் passive income பெறும் தளம்."},
+      {"q": "Nexus அலுவலகம் உள்ளதா?", "a": "Panama City-ல் உள்ளது. support@nexus.vin மூலம் தொடர்பு கொள்ளலாம்."},
+      {"q": "வணிக நோக்கம் என்ன?", "a": "Blockchain decentralization மற்றும் crypto community உருவாக்கம்."}
+    ]
+  },
+  {
+    "category": "Registration",
+    "questions": [
+      {"q": "புதிய பயனர் எப்படி பதிவு செய்வது?", "a": "Dashboard → Refer a friend → account create செய்யவும்."},
+      {"q": "Username எப்படி இருக்க வேண்டும்?", "a": "Special characters இல்லாமல் இருக்க வேண்டும்."},
+      {"q": "Email மாற்ற முடியுமா?", "a": "மாற்ற முடியாது."},
+      {"q": "Password எப்படி அமைப்பது?", "a": "Strong password உருவாக்கி confirm செய்யவும்."}
+    ]
+  },
+  {
+    "category": "Staking",
+    "questions": [
+      {"q": "Staking என்றால் என்ன?", "a": "Crypto lock செய்து reward பெறுவது."},
+      {"q": "BVS திட்டம் என்ன?", "a": "5 வருட staking திட்டம் Fixed & Regular options உடன்."},
+      {"q": "மீண்டும் staking செய்ய முடியுமா?", "a": "ஆம், maturity பிறகு செய்யலாம்."},
+      {"q": "யார் staking செய்யலாம்?", "a": "Email + crypto wallet உள்ள யாரும் செய்யலாம்."},
+      {"q": "Best staking option?", "a": "Dashboard-ல் available options பார்க்கலாம்."}
+    ]
+  },
+  {
+    "category": "Rewards & Earnings",
+    "questions": [
+      {"q": "Rewards எப்போது கிடைக்கும்?", "a": "Regular → monthly, Fixed → maturity."},
+      {"q": "Group incentive என்ன?", "a": "8% based on team volume."},
+      {"q": "Ceiling limit என்ன?", "a": "Staking amount அடிப்படையில் வருமான வரம்பு இருக்கும்."},
+      {"q": "Referral bonus என்ன?", "a": "10% earning கிடைக்கும்."}
+    ]
+  },
+  {
+    "category": "Team & Business",
+    "questions": [
+      {"q": "LBV & RBV எப்படி பார்க்கலாம்?", "a": "Dashboard-ல் Current Month Business Value பகுதியில்."},
+      {"q": "Loss குறைக்க எப்படி?", "a": "Left & right active users maintain செய்யவும்."}
+    ]
+  },
+  {
+    "category": "Withdrawal & Fees",
+    "questions": [
+      {"q": "Withdrawal எவ்வளவு நேரம்?", "a": "சாதாரணமாக நிமிடங்களில், max 48 hours."},
+      {"q": "Fees உள்ளதா?", "a": "4வது withdrawal முதல் 0.1% charge."}
+    ]
+  },
+  {
+    "category": "Account Support",
+    "questions": [
+      {"q": "Email மாற்ற முடியுமா?", "a": "முடியாது."},
+      {"q": "Password reset எப்படி?", "a": "Forgot password → email link → reset."},
+      {"q": "Support எப்படி தொடர்பு கொள்ளலாம்?", "a": "My Tickets அல்லது support@nexus.vin."}
+    ]
+  },
+  {
+    "category": "Balances",
+    "questions": [
+      {"q": "Available Balance Type I என்ன?", "a": "Staking rewards இதில் சேரும்."},
+      {"q": "Earning Balance என்ன?", "a": "Referral + incentive இதில் சேரும்."},
+      {"q": "Staking Balance என்ன?", "a": "Stakingக்கு பயன்படுத்தலாம்."},
+      {"q": "Exchange Balance என்ன?", "a": "Withdraw / transfer செய்ய பயன்படும்."}
+    ]
+  },
+  {
+    "category": "Club Membership",
+    "questions": [
+      {"q": "Decider Club requirement?", "a": "1000 GI"},
+      {"q": "Believer Club?", "a": "7500 GI"},
+      {"q": "Converter Club?", "a": "30000 GI"},
+      {"q": "Builder Club?", "a": "150000 GI"},
+      {"q": "Millennial Club?", "a": "600000 GI"},
+      {"q": "GenX Club?", "a": "2500000 GI"},
+      {"q": "Lambo Club?", "a": "10000000 GI"},
+      {"q": "Mooning Club?", "a": "20000000 GI"},
+      {"q": "Oberon Club?", "a": "30000000 GI"},
+      {"q": "Callisto Club?", "a": "40000000 GI"},
+      {"q": "Titan Club?", "a": "50000000 GI"}
+    ]
+  },
+  {
+    "category": "Rules",
+    "questions": [
+      {"q": "யாருக்கு incentive கிடைக்காது?", "a": "3 மாதம் inactive accountsக்கு incentive கிடைக்காது."}
+    ]
+  }
+]
