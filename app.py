@@ -1,8 +1,8 @@
 import streamlit as st
 
-st.set_page_config(page_title="Learning App", layout="wide")
+st.set_page_config(page_title="Vibha Beldex Learning & Quiz App", layout="wide")
 
-st.title("🎓 Learning & Quiz App")
+st.title("🎓 Vibha Beldex Learning & Quiz App")
 
 st.markdown("""
 Welcome to your interactive learning platform.

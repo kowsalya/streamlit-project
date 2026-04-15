@@ -5,7 +5,7 @@ import os
 # -------------------------------
 # Page Config
 # -------------------------------
-st.set_page_config(page_title="Learning", layout="wide")
+st.set_page_config(page_title="Vibha Beldex Learning & Quiz App", layout="wide")
 
 st.title("📘 Learning Module")
 
