@@ -1,2 +1,3 @@
-# crypto-learning-app
-Tamil Crypto Learning App with FAQ, categories, and navigation built using Streamlit
+# streamlit-project
+
+Multi-page Streamlit application for interactive learning and quiz assessment with real-time scoring and certificate generation.
