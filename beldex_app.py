@@ -1,14 +1,16 @@
 import streamlit as st
 import json
+import random
 
 st.set_page_config(page_title="Beldex Smart App", page_icon="💰")
 
+# ---------- HEADER ----------
 st.markdown(
     "<h1 style='text-align:center; color:#00ffc3;'>💰 Beldex Smart App</h1>",
     unsafe_allow_html=True
 )
 
-# Sidebar
+# ---------- SIDEBAR ----------
 st.sidebar.title("💰 Vibha Beldex App")
 st.sidebar.markdown("Learn • Decide • Grow")
 
@@ -54,28 +56,57 @@ elif menu == "📈 Staking Planner":
     st.success(f"Estimated Reward: ₹{estimated_reward:.2f}")
 
 # ---------------------------
-# RISK CHECKER
+# SMART RISK ANALYZER
 # ---------------------------
 elif menu == "⚠ Risk Checker":
 
-    st.header("⚠ Risk Awareness")
+    st.header("⚠ Smart Risk Analyzer")
 
-    guarantee = st.checkbox("Guaranteed profit promised?")
-    pressure = st.checkbox("Referral pressure exists?")
-    unclear = st.checkbox("No clear explanation?")
+    guarantee = st.selectbox("Guaranteed profit promised?", ["No", "Yes"])
+    referral = st.selectbox("Income mainly from referrals?", ["No", "Yes"])
+    transparency = st.selectbox("Is project clearly explained?", ["Yes", "No"])
+    urgency = st.selectbox("Are you pressured to join quickly?", ["No", "Yes"])
+    withdraw = st.selectbox("Is withdrawal process clear?", ["Yes", "No"])
 
-    risk_score = sum([guarantee, pressure, unclear])
+    score = 0
+    reasons = []
 
-    if st.button("Check Risk"):
-        if risk_score == 0:
-            st.success("Low Risk ✅")
-        elif risk_score == 1:
-            st.warning("Moderate Risk ⚠")
+    if guarantee == "Yes":
+        score += 2
+        reasons.append("❌ Guaranteed profit is unrealistic")
+
+    if referral == "Yes":
+        score += 2
+        reasons.append("⚠ Referral-heavy model risk")
+
+    if transparency == "No":
+        score += 2
+        reasons.append("❌ Lack of clarity")
+
+    if urgency == "Yes":
+        score += 1
+        reasons.append("⚠ Pressure tactics")
+
+    if withdraw == "No":
+        score += 2
+        reasons.append("❌ Withdrawal unclear")
+
+    if st.button("Analyze Risk"):
+
+        st.markdown("### 🔍 Analysis")
+
+        for r in reasons:
+            st.write(r)
+
+        if score <= 2:
+            st.success("✅ Low Risk")
+        elif score <= 5:
+            st.warning("⚠ Moderate Risk")
         else:
-            st.error("High Risk 🚨 Avoid carefully")
+            st.error("🚨 High Risk")
 
 # ---------------------------
-# LEARNING + QUIZ + SCORE + CERTIFICATE
+# LEARNING + REAL QUIZ + CERTIFICATE
 # ---------------------------
 elif menu == "📘 Learning":
 
@@ -84,7 +115,7 @@ elif menu == "📘 Learning":
     with open("faq.json", "r", encoding="utf-8") as f:
         topics = json.load(f)
 
-    # Session states
+    # Session state
     if "learn_index" not in st.session_state:
         st.session_state.learn_index = 0
     if "score" not in st.session_state:
@@ -92,32 +123,37 @@ elif menu == "📘 Learning":
     if "answered" not in st.session_state:
         st.session_state.answered = False
 
+    topic = topics[st.session_state.learn_index]
+
     # Progress
     progress = (st.session_state.learn_index + 1) / len(topics)
     st.progress(progress)
 
-    topic = topics[st.session_state.learn_index]
-
     st.write(f"📘 Question {st.session_state.learn_index + 1} of {len(topics)}")
     st.markdown("### ❓ " + topic["question"])
-    st.success(topic["answer"])
+    st.info(topic["answer"])
+
+    # Shuffle options
+    options = topic["options"].copy()
+    random.shuffle(options)
 
     # Quiz
-    st.markdown("### 🧠 Quick Check")
+    st.markdown("### 🧠 Quiz")
 
     user_answer = st.radio(
-        "Is this correct?",
-        ["Yes", "No"],
-        key=st.session_state.learn_index
+        "Choose correct answer:",
+        options,
+        key=f"quiz_{st.session_state.learn_index}"
     )
 
     if st.button("Submit Answer"):
         if not st.session_state.answered:
-            if user_answer == "Yes":
+
+            if user_answer == topic["correct"]:
                 st.session_state.score += 1
-                st.success("Correct 👍")
+                st.success("Correct ✅")
             else:
-                st.warning("Review again ⚠")
+                st.error(f"Wrong ❌ Correct: {topic['correct']}")
 
             st.session_state.answered = True
 
@@ -138,17 +174,19 @@ elif menu == "📘 Learning":
                 st.session_state.learn_index += 1
                 st.session_state.answered = False
 
-    # Final result
+    # Final Result
     if st.session_state.learn_index == len(topics) - 1:
+
         st.markdown("### 🎯 Final Result")
 
         if st.session_state.score >= len(topics) * 0.6:
             st.success("🎉 Passed!")
 
-            name = st.text_input("Enter your name for certificate")
+            name = st.text_input("Enter your name")
 
             if st.button("Generate Certificate"):
-                certificate_text = f"""
+
+                certificate = f"""
 Certificate of Completion
 
 This certifies that {name}
@@ -160,7 +198,7 @@ Score: {st.session_state.score}/{len(topics)}
 
                 st.download_button(
                     label="📄 Download Certificate",
-                    data=certificate_text,
+                    data=certificate,
                     file_name="certificate.txt"
                 )
         else:
